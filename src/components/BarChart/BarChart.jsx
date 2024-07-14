@@ -10,8 +10,7 @@ const CustomerTransactionChart = () => {
 
   useEffect(() => {
     if (selectedCustomerId !== null) {
-      const customerTransactions = transactions.filter(transaction => transaction.customer_id == selectedCustomerId.id);
-      console.log(customerTransactions);
+      const customerTransactions = transactions.filter(transaction => transaction.customer_id === selectedCustomerId.id);
       const labels = [...new Set(customerTransactions.map(transaction => transaction.date))];
       const data = labels.map(label =>
         customerTransactions
@@ -33,7 +32,8 @@ const CustomerTransactionChart = () => {
       });
 
       setChartOptions({
-        responsive: true,
+        responsive: true, // Ensures chart adapts to different screen sizes
+        maintainAspectRatio: false, // Allows chart to adjust height for better mobile view
         plugins: {
           legend: {
             position: "top",
@@ -47,14 +47,14 @@ const CustomerTransactionChart = () => {
           x: {
             title: {
               display: true,
-              text: 'Date',
+              text: "Date",
             },
           },
           y: {
             beginAtZero: true,
             title: {
               display: true,
-              text: 'Amount',
+              text: "Amount",
             },
           },
         },
@@ -67,17 +67,17 @@ const CustomerTransactionChart = () => {
   };
 
   return (
-    <div className="card" style={{ backgroundColor: "#ffeed6", padding: '20px' }}>
+    <div className="card" style={{ backgroundColor: "#ffeed6", padding: "20px" }}>
       <Dropdown
         value={selectedCustomerId}
         options={customers}
         onChange={onCustomerChange}
         optionLabel="name"
         placeholder="Select a Customer"
-        className="w-full md:w-14rem mb-4"
+        className="w-full mb-4" 
       />
       {selectedCustomerId !== null && (
-        <Chart type="bar" data={chartData} options={chartOptions} />
+        <Chart type="bar" data={chartData} options={chartOptions} className="chart" style={{ height: "350px" }} /> 
       )}
     </div>
   );

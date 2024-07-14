@@ -3,6 +3,7 @@
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
 
+
 /* CustomerTable.css */
 .search-input .pi {
   margin-right: 0.5rem !important; /* Adjust the value to add padding between the icon and the input */
@@ -82,4 +83,23 @@ body {
 .custom-table tbody tr {
   background-color: #ffffff; /* Ensure rows have a white background */
   margin-bottom: 10px; /* Add space between rows */
+}
+
+/* ! media query */
+
+@media (max-width: 801px) {
+    .navbar{
+      display: none !important;
+    }
+    .sticky-top{
+      display: flex !important;
+      align-items: center;
+      padding: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+  .chart{
+    height: 250px !important;
+  }
 }

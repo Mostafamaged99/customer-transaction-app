@@ -3,6 +3,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import icon from "../../imgs/light.svg";
 import { NavLink } from "react-router-dom";
 import { FaChartBar, FaExchangeAlt, FaUser } from "react-icons/fa";
+import "../../App.css"
 
 export default function Navbar() {
   const [show, setShow] = useState(false);
