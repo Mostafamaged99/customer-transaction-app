@@ -77,7 +77,7 @@ const CustomerTransactionChart = () => {
         className="w-full mb-4" 
       />
       {selectedCustomerId !== null && (
-        <Chart type="bar" data={chartData} options={chartOptions} className="chart" style={{ height: "350px" }} /> 
+        <Chart type="bar" data={chartData} options={chartOptions} className="chart" style={{ height: "400px" }} /> 
       )}
     </div>
   );
